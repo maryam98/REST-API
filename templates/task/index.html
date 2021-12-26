@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+{% for item in query %}
+    <ul>
+    <li><a href="{% url 'task_detail' item.pk %}" >{{  item.title }}</a></li>
+    <li>{{  item.content }}</li>
+    <li>{{  item.created }}</li>
+    <li>{{  item.Category }}</li>
+  
+    </ul>
+
+{% endfor %}
+     <form  method="POST">
+       {% csrf_token %}  
+       {{form|crispy}}
+       <br>
+       <button type="submit" class="btn btn-primary">insert</button>
+     </form>  
+{% endblock content %}
+    

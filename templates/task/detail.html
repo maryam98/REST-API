@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    {{object.title}}
+    <br>
+    {{object.created}}
+    <br>
+    {{object.Category}}
+<br>
+    <a href="{% url 'delete_task' object.id %}">Delete</a>
+
+{% endblock content %}
+    
